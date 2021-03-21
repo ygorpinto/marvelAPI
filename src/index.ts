@@ -1,12 +1,13 @@
 import express from 'express'
+import router from './controllers/controller';
 import connectDB from './db/db'
+import cors from 'cors'
 
-const app = express()
+const app = express();
 
-app.get('/',(req,res)=>{
-    res.send('server ok')
-});
-
+app.use(cors());
+app.use('/',router);
+app.use(express.json({extended: false});
 
 connectDB();
 
